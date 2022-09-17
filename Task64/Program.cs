@@ -10,7 +10,7 @@ void recursion(int m, int n){
 
     if     ( n > m ) recursion( m + 1, n );
     else if( m > n ) recursion( m - 1, n );
-    else             Console.WriteLine();
+    else               Console.WriteLine();
 }
 
 recursion(-11, 10);
