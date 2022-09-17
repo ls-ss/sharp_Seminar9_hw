@@ -10,19 +10,17 @@ int m = int.Parse(Console.ReadLine());
 Console.Write("Введите второе число: ");
 int n = int.Parse(Console.ReadLine());
 
-if( m > 0 || n > 0){
-    Console.WriteLine($"В диапазоне чисел: [{m}, ..., {n}] натуральными являются числа:");
+if( m <= 0 & n <= 0){
+    Console.WriteLine($"!!! В диапазоне чисел [{m}, {n}] натуральных чисел нет.");
 }
-else{
-    Console.WriteLine($"В диапазоне чисел: [{m}, ..., {n}] натуральных чисел нет.");
-}
+Console.Write($"Сумма натуральных чисел в диапазоне [{m}, {n}] равна: ");
 
-recursion(m, n);
+sumNatRecursion(m, n, 0);
 
-void recursion(int m, int n){
-    if( m > 0 ) Console.Write($"{m}, ");
+void sumNatRecursion(int m, int n, int sum){
+    if( m > 0 ) sum += m;
 
-    if     ( n > m ) recursion( m + 1, n );
-    else if( m > n ) recursion( m - 1, n );
-    else               Console.WriteLine();
+    if     ( n > m ) sumNatRecursion( m + 1, n, sum );
+    else if( m > n ) sumNatRecursion( m - 1, n, sum );
+    else             Console.WriteLine(sum);
 }
